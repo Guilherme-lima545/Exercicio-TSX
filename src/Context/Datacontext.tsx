@@ -8,7 +8,7 @@ type IDataContext = {
   inicio: string;
   final: string;
   setInicio: React.Dispatch<React.SetStateAction<string>>;
-  setFinal: React.Dispatch<React.SetStateAction<string>>
+  setFinal: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export type Ivenda = {
@@ -31,11 +31,11 @@ export const useData = () => {
 
 function getDate(n: number) {
   const date = new Date();
-  date.setDate(date.getDate() - n)
+  date.setDate(date.getDate() - n);
   const dd = String(date.getDate()).padStart(2, '0');
-   const mm = String(date.getMonth() + 1).padStart(2, '0');
-   const yyy = date.getFullYear();
-   return `${yyy}-${mm}-${dd}`
+  const mm = String(date.getMonth() + 1).padStart(2, '0');
+  const yyy = date.getFullYear();
+  return `${yyy}-${mm}-${dd}`;
 }
 
 export const DataContextProvider = ({ children }: React.PropsWithChildren) => {
@@ -47,7 +47,9 @@ export const DataContextProvider = ({ children }: React.PropsWithChildren) => {
   );
 
   return (
-    <DataContext.Provider value={{ data, loading, error, inicio, setInicio, final, setFinal }}>
+    <DataContext.Provider
+      value={{ data, loading, error, inicio, setInicio, final, setFinal }}
+    >
       {children}
     </DataContext.Provider>
   );

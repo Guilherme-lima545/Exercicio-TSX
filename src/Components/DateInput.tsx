@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const generalStyle: React.CSSProperties = {
   fontSize: '1rem',
@@ -6,7 +6,7 @@ const generalStyle: React.CSSProperties = {
   padding: 'var(--gap-s) .75rem',
   backgroundColor: 'var(--color-4)',
   borderRadius: 'var(--gap)',
-}
+};
 
 const labelStyle: React.CSSProperties = {
   display: 'block',
@@ -17,25 +17,33 @@ const labelStyle: React.CSSProperties = {
   padding: 'var(--gap-s) .75rem',
   backgroundColor: 'var(--color-4)',
   borderRadius: 'var(--gap)',
-}
+};
 
 const inputStyle: React.CSSProperties = {
   border: 'none',
   fontFamily: 'monospace',
-  ...generalStyle
-}
+  ...generalStyle,
+};
 
 type IdateInput = React.ComponentProps<'input'> & {
-  label: string
-}
+  label: string;
+};
 
-const DateInput = ({label, ...props}: IdateInput) => {
+const DateInput = ({ label, ...props }: IdateInput) => {
   return (
     <div>
-      <label style={labelStyle} htmlFor={label}>{label}</label>
-      <input style={inputStyle} id={label} name={label} type="date"  {...props}/>
+      <label style={labelStyle} htmlFor={label}>
+        {label}
+      </label>
+      <input
+        style={inputStyle}
+        id={label}
+        name={label}
+        type="date"
+        {...props}
+      />
     </div>
-  )
-}
+  );
+};
 
-export default DateInput
+export default DateInput;

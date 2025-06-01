@@ -8,22 +8,23 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Venda from './pages/Venda';
 
 function App() {
+
   return (
     <BrowserRouter>
-    <DataContextProvider>
-      <div className='container'>
-        <Sidenav />
-        <main>
-          <Header />
-          <Routes> 
-          <Route path='/' element={ <Resume />} />
-          <Route path='/vendas' element={ <Vendas />} />
-          <Route path='/vendas/:id' element={ <Venda />} />
-          </Routes>
-        </main>
-      </div>
-    </DataContextProvider>
-   </BrowserRouter>
+      <DataContextProvider>
+        <div className="container">
+          <Sidenav />
+          <main>
+            <Header />
+            <Routes>
+              <Route path="/" element={<Resume />} />
+              <Route path="/vendas" element={<Vendas />} />
+              <Route path="/vendas/:id" element={<Venda />} />
+            </Routes>
+          </main>
+        </div>
+      </DataContextProvider>
+    </BrowserRouter>
   );
 }
 

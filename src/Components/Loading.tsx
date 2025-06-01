@@ -1,4 +1,4 @@
-import React, { type CSSProperties } from 'react'
+import { type CSSProperties } from 'react';
 
 const style: CSSProperties = {
   border: 'var(--gap-s) solid var(--color-2)',
@@ -6,7 +6,7 @@ const style: CSSProperties = {
   width: 'var(--gap)',
   height: 'var(--gap)',
   borderRadius: '50%',
-  animation: 'spin 1s infinite'
+  animation: 'spin 1s infinite',
 };
 
 const Loading = () => {
@@ -22,7 +22,7 @@ const Loading = () => {
         `}
       </style>
     </div>
-  )
-}
+  );
+};
 
-export default Loading
+export default Loading;

@@ -1,38 +1,47 @@
 import GraficoVendas from '../Components/GraficoVendas';
-import { useData } from '../Context/Datacontext'
+import { useData } from '../Context/Datacontext';
 
 const Resume = () => {
-  const {data} = useData()
-  
+  const { data } = useData();
 
-  if(data === null) return null;
+  if (data === null) return null;
   return (
     <section>
-     <div className='resumo flex mb'>
-      <div className='BOX'>
-        <h2>Vendas</h2>
-        <span>
-        {data.filter((i) => i.status === 'falha').reduce((acc, item) => acc + item.preco, 0).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}
-        </span>
+      <div className="resumo flex mb">
+        <div className="BOX">
+          <h2>Vendas</h2>
+          <span>
+            {data
+              .filter((i) => i.status === 'falha')
+              .reduce((acc, item) => acc + item.preco, 0)
+              .toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+          </span>
+        </div>
+        <div className="BOX">
+          <h2>Recebido</h2>
+          <span>
+            {data
+              .filter((i) => i.status === 'pago')
+              .reduce((acc, item) => acc + item.preco, 0)
+              .toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+          </span>
+        </div>
+        <div className="BOX">
+          <h2>Processando</h2>
+          <span>
+            {data
+              .filter((i) => i.status === 'processando')
+              .reduce((acc, item) => acc + item.preco, 0)
+              .toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+          </span>
+        </div>
       </div>
-         <div className='BOX'>
-        <h2>Recebido</h2>
-        <span>
-        {data.filter((i) => i.status === 'pago')
-        .reduce((acc, item) => acc + item.preco, 0).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}
-        </span>
+      <div className="box mb">
+        {' '}
+        <GraficoVendas data={data} />{' '}
       </div>
-         <div className='BOX'>
-        <h2>Processando</h2>
-        <span>
-        {data.filter((i) => i.status === 'processando')
-        .reduce((acc, item) => acc + item.preco, 0).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}
-        </span>
-      </div>
-      </div> 
-      <div className='box mb'> <GraficoVendas data={data} /> </div>
     </section>
-  )
-}
+  );
+};
 
-export default Resume
+export default Resume;
