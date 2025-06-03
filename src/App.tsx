@@ -4,7 +4,7 @@ import Sidenav from './Components/Sidenav';
 import Header from './Components/Header';
 import { DataContextProvider } from './Context/Datacontext';
 import Vendas from './pages/Vendas';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import Venda from './pages/Venda';
 
 function App() {
